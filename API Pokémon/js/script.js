@@ -28,8 +28,14 @@ async function fetchPokemon() {
             pokemonName.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
             pokemonName.classList.add('pokemon-name');
 
+            const pokemonTypes = document.createElement('p');
+            pokemonTypes.classList.add('pokemon-types');
+            const types = pokemonDetails.types.map(typeInfo => typeInfo.type.name).join(', ');
+            pokemonTypes.textContent = `Types: ${types}`;
+
             pokemonElement.appendChild(pokemonImage);
             pokemonElement.appendChild(pokemonName);
+            pokemonElement.appendChild(pokemonTypes);
 
             pokemonListElement.appendChild(pokemonElement);
         }
